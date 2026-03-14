@@ -3,13 +3,13 @@
 Enjoy is a platform designed for book lovers seeking their next literary adventure. Through an intuitive interface, users can explore and discover books that perfectly match their personal tastes and interests.
 
 
-##👥 Authors This project was developed with ❤️ by:
+## 👥 Authors This project was developed with ❤️ by:
 
 Valennq12 - GitHub Profile
 asierdba - GitHub Profile
 
 
-##🚀 Main Features Personalized Recommendations: Filtering algorithm based on user genres and preferences.
+## 🚀 Main Features Personalized Recommendations: Filtering algorithm based on user genres and preferences.
 
 - Detailed Book Profiles: Comprehensive information including synopses and ratings.
 - Responsive Interface: Optimized experience for both desktop and mobile devices.
