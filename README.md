@@ -19,7 +19,7 @@ asierdba - GitHub Profile
 ## 🛠️ Tech Stack The following technologies were used to build this platform:
 
 - Backend: PHP, Laravel 
-- BD: MySQL ,Creación de API REST  
+- BBDD: MySQL ,Creación de API REST  
 
 
 ## ⚙️ Installation & Setup Clone the repository: git clone https://github.com/asierdba/WhatReadToday.git
