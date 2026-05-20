@@ -16,13 +16,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Usuarios de prueba
+
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
 
-
         $this->call(EmotionSeeder::class);
     }
 }
-
