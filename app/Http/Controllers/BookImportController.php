@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Content;
 use App\Models\Book;
 use App\Models\Emotion;
+use App\Models\Genre;
 use App\Services\GoogleBooksService;
 use App\Services\EmotionAIService;
 use Illuminate\Support\Str;
@@ -22,9 +23,14 @@ class BookImportController extends Controller
 
     public function importRandomByGenre()
     {
-        // 1. Elegir género aleatorio
-        $genres = config('genres');
-        $genre = $genres[array_rand($genres)];
+        // 1. Elegir género aleatorio desde la BDD
+        $genre = Genre::inRandomOrder()->value('name');
+
+        if (!$genre) {
+            return response()->json([
+                'message' => 'No hay géneros en la base de datos.'
+            ], 404);
+        }
 
         // 2. Construir query
         $query = "subject:" . $genre;
@@ -66,11 +72,8 @@ class BookImportController extends Controller
 
             // 6. Emoción IA
             $emotionName = $this->emotionAI->getEmotionFromTitle($title);
-            $emotion = Emotion::where('emotionName', $emotionName)->first();
-
-            if (!$emotion) {
-                $emotion = Emotion::inRandomOrder()->first();
-            }
+            $emotion = Emotion::where('emotionName', $emotionName)->first()
+                ?? Emotion::inRandomOrder()->first();
 
             // 7. Crear Content
             $content = Content::create([
