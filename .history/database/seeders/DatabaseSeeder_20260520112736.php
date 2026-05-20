@@ -15,13 +15,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+<<<<<<< HEAD
         // Usuarios de prueba
+=======
+        // User::factory(10)->create();
 
+>>>>>>> bdbe679b18d15ce63557224e84bcdf44b4ec0901
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+<<<<<<< HEAD
+
 
         $this->call(EmotionSeeder::class);
     }
 }
+
+=======
+    }
+}
+>>>>>>> bdbe679b18d15ce63557224e84bcdf44b4ec0901
