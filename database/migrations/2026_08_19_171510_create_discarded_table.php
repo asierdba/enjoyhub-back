@@ -15,10 +15,9 @@ return new class extends Migration
             $table->unsignedBigInteger('userId');
             $table->unsignedBigInteger('contentId');
 
-            $table->foreign('userId')->references('userId')->on('users')->onDelete('cascade');
             $table->foreign('contentId')->references('contentId')->on('contents')->onDelete('cascade');
 
-            $table->primary(['userId', 'contentId']);
+            $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

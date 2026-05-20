@@ -22,7 +22,7 @@ class AuthController extends Controller
             'email' => $request->email,
             'userName' => $request->userName,
             'password' => Hash::make($request->password),
-            'role' => 'standard',
+            'role' => 'user',
             'profileIcon' => null
         ]);
 
