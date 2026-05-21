@@ -8,6 +8,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserListController;
 use App\Http\Controllers\ListItemController;
 use App\Http\Controllers\DiscardedController;
+use App\Http\Controllers\RecommendationController;
+
 
 
 
@@ -34,9 +36,14 @@ Route::get('/users/{id}/lists', [UserListController::class, 'getListsByUser']);
 
 Route::post('/users/{userId}/lists', [UserListController::class, 'createList']);
 Route::post('/users/{userId}/discarded/{contentId}', [DiscardedController::class, 'addToDiscarded']);
+Route::get('/users/{userId}/discarded', [DiscardedController::class, 'getDiscardedByUser']);
+
 
 
 Route::get('/lists/{listId}/items', [ListItemController::class, 'getItemsByList']);
 Route::post('/lists/{listId}/items', [ListItemController::class, 'addItemToList']);
 Route::delete('/lists/{listId}/items/{contentId}', [ListItemController::class, 'deleteItemFromList']);
+
+Route::post('/recommendations', [RecommendationController::class, 'getRecommendation']);
+
 
