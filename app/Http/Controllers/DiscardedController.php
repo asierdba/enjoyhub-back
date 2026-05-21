@@ -26,4 +26,13 @@ class DiscardedController extends Controller
 
         return $discarded;
     }
+
+        public function getDiscardedByUser(int $userId)
+    {
+        $discarded = Discarded::where('userId', $userId)
+                              ->with('content')
+                              ->get();
+
+        return $discarded;
+    }
 }
