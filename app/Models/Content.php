@@ -31,12 +31,7 @@ class Content extends Model
     // RELACIÓN: un contenido tiene muchos géneros (N:N)
     public function genres()
     {
-        return $this->belongsToMany(
-            Genre::class,
-            'genre_content',
-            'contentId',
-            'genreId'
-        );
+        return $this->belongsToMany(Genre::class, 'content_genre', 'contentId', 'genreId');
     }
 
     // RELACIÓN: un contenido tiene muchos autores (N:N)

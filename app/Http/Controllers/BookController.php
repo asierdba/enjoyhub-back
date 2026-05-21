@@ -2,25 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use App\Application\UseCases\GetAllBooks;
-use App\Application\UseCases\CreateBook;
-use App\Application\UseCases\GetBookById;
 use Illuminate\Http\Request;
+use App\Models\Content;
+use App\Models\Genre;
+use App\Models\Emotion; 
 
 class BookController extends Controller
 {
-    public function index(GetAllBooks $useCase)
+
+    public function index()
     {
-        return $useCase->execute();
+        return Content::all();
     }
 
-    public function store(Request $request, CreateBook $useCase)
+
+    public function store(Request $request)
     {
-        return $useCase->execute($request->all());
+        $book = Content::create($request->all());
+        return response()->json($book, 201);
     }
 
-    public function show($id, GetBookById $useCase)
+
+    public function show($id)
     {
-        return $useCase->execute($id);
+        return Content::findOrFail($id);
     }
+
+
+    public function getBooksByEmotion($emotionId)
+    {
+
+        $emotion = Emotion::find($emotionId);
+
+        if (!$emotion) {
+            return response()->json(['error' => 'Emotion not found'], 404);
+        }
+
+
+        $genreIds = $emotion->genres()->pluck('genreId');
+
+
+        $books = Content::whereHas('genres', function ($q) use ($genreIds) {
+            $q->whereIn('genres.genreId', $genreIds);
+        })->get();
+
+        return response()->json($books);
+    }
+
 }
+
