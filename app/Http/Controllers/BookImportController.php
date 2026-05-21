@@ -23,7 +23,7 @@ class BookImportController extends Controller
 
     public function importRandomByGenre()
     {
-        // 1. Elegir género aleatorio desde la BDD
+
         $genre = Genre::inRandomOrder()->value('name');
 
         if (!$genre) {
@@ -32,10 +32,9 @@ class BookImportController extends Controller
             ], 404);
         }
 
-        // 2. Construir query
         $query = "subject:" . $genre;
 
-        // 3. Llamar a Google Books
+        // LLAMADA A GOOGLE BOOKS
         $items = $this->googleBooks->searchBooks($query, 10);
 
         if (empty($items)) {
@@ -52,7 +51,7 @@ class BookImportController extends Controller
             $title = $info['title'] ?? null;
             if (!$title) continue;
 
-            // 4. Evitar duplicados
+
             if (Content::where('title', $title)->exists()) {
                 continue;
             }
@@ -85,7 +84,7 @@ class BookImportController extends Controller
                 'emotionId' => $emotion?->emotionId,
             ]);
 
-            // 8. Crear Book
+
             Book::create([
                 'contentId' => $content->contentId,
                 'publisher' => $publisher,
