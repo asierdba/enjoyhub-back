@@ -1,0 +1,892 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/documentation
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handles the API request and renders the Swagger documentation view.'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/oauth2-callback
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handles the OAuth2 callback and retrieves the required file for the redirect.'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |
+          <!doctype html>
+          <html lang="en-US">
+          <body>
+          <script src="oauth2-redirect.js"></script>
+          </body>
+          </html>
+        headers:
+          content-type: 'text/html; charset=utf-8'
+          cache-control: 'no-cache, private'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/register
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        custom: []
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: qkunze@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      userName:
+        custom: []
+        name: userName
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      password:
+        custom: []
+        name: password
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      email: qkunze@example.com
+      userName: consequatur
+      password: consequatur
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        custom: []
+        name: email
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      password:
+        custom: []
+        name: password
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      email: consequatur
+      password: consequatur
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/books
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '[{"contentId":1,"title":"Journey to the Center of the Earth","releaseYear":2006,"description":"The intrepid Professor Lindenbrock embarks upon the strangest expedition of the nineteenth century: a journey down an extinct Icelandic volcano to the Earth\u2019s very core. In his quest to penetrate the planet\u2019s primordial secrets, the geologist\u2014together with his quaking nephew Axel and their devoted guide, Hans\u2014discovers an astonishing subterranean menagerie of prehistoric proportions. Verne\u2019s imaginative tale is at once the ultimate science fiction adventure and a reflection on the perfectibility of human understanding and the psychology of the questor. As David Brin notes in his Introduction, though Verne never knew the term \u201cscience fiction,\u201d Journey to the Centre of the Earth is \u201cinarguably one of the wellsprings from which it all began.\u201d","image":"http:\/\/books.google.com\/books\/content?id=icKmd-tlvPMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":9,"created_at":"2026-05-20T13:43:25.000000Z","updated_at":"2026-05-20T13:43:25.000000Z"},{"contentId":2,"title":"Mysteries","releaseYear":2001,"description":"The first complete English translation of the Nobel Prize-winner\u2019s literary masterpiece A Penguin Classic Mysteries is the story of Johan Nilsen Nagel, a mysterious stranger who suddenly turns up in a small Norwegian town one summer\u2014and just as suddenly disappears. Nagel is a complete outsider, a sort of modern Christ treated in a spirit of near parody. He condemns the politics and thought of the age, brings comfort to the \u201cinsulted and injured,\u201d and gains the love of two women suggestive of the biblical Mary and Martha. But there is a sinister side of him: in his vest he carries a vial of prussic acid... The novel creates a powerful sense of Nagel''s stream of thought, as he increasingly withdraws into the torture chamber of his own subconscious psyche. For more than seventy years, Penguin has been the leading publisher of classic literature in the English-speaking world. With more than 1,800 titles, Penguin Classics represents a global bookshelf of the best works throughout history and across genres and disciplines. Readers trust the series to provide authoritative texts enhanced by introductions and notes by distinguished scholars and contemporary authors, as well as up-to-date translations by award-winning translators.","image":"http:\/\/books.google.com\/books\/content?id=MRoMUV2kLZEC&printsec=frontcover&img=1&zoom=1&source=gbs_api","type":"book","emotionId":2,"created_at":"2026-05-20T13:43:25.000000Z","updated_at":"2026-05-20T13:43:25.000000Z"},{"contentId":3,"title":"Frankenstein","releaseYear":2025,"description":"Frankenstein; or, The Modern Prometheus is an 1818 Gothic novel written by English author Mary Shelley. Frankenstein tells the story of Victor Frankenstein, a young scientist who creates a sapient creature in an unorthodox scientific experiment that involved putting it together with different body parts. Shelley started writing the story when she was 18 and staying in Bath, and the first edition was published anonymously in London on 1 January 1818, when she was 20. Her name first appeared in the second edition, which was published in Paris in 1821. Shelley travelled through Europe in 1815, moving along the river Rhine in Germany, and stopping in Gernsheim, 17 kilometres (11 mi) away from Frankenstein Castle, where, about a century earlier, Johann Konrad Dippel, an alchemist, had engaged in experiments. She then journeyed to the region of Geneva, Switzerland, where much of the story takes place. Galvanism and occult ideas were topics of conversation for her companions, particularly for her lover and future husband Percy Bysshe Shelley. In 1816, Mary, Percy, John Polidori, and Lord Byron had a competition to see who would write the best horror story.","image":"http:\/\/books.google.com\/books\/content?id=lyWOEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":7,"created_at":"2026-05-20T13:43:26.000000Z","updated_at":"2026-05-20T13:43:26.000000Z"},{"contentId":4,"title":"The Odyssey of Homer","releaseYear":2005,"description":"A stunning verse translation of Homer\u2019s epic tale about one man\u2019s decade-long struggle to return home after years on the battlefields of Troy, from National Book Award\u2013winning translator Allen Mandelbaum The inspiration for the upcoming film The Odyssey, directed by Christopher Nolan and starring Matt Damon, Anne Hathaway, Tom Holland, Elliot Page, Robert Pattinson, and Zendaya \u201cMuse, tell me of the man of many wiles, the man who wandered many paths of exile after he sacked Troy\u2019s sacred citadel.\u201d So begins one of the greatest adventures of world literature. Homer\u2019s epic chronicle of the Greek hero Odysseus\u2019 decade-long journey home from the Trojan War has inspired writers from Virgil to James Joyce. Odysseus survives storm and shipwreck, the cave of the Cyclops and the isle of Circe, the lure of the Sirens\u2019 song and a trip to the Underworld, only to find his most difficult challenge at home, where treacherous suitors seek to steal his kingdom and his loyal wife, Penelope. Meanwhile, his son Telemachus is on a journey of his own, tasked by the goddess Athena to fend off the suitors and liaise with warriors who fought alongside Odysseus during the Trojan War. But when the paths of father and son converge, they must use all their wits to reclaim Ithaca\u2014or die trying. Allen Mandelbaum\u2019s brilliant verse translation realizes the power and the beauty of the original Greek and demonstrates why the Odyssey has captured the human imagination for nearly three thousand years.","image":"http:\/\/books.google.com\/books\/content?id=ORyo8qAA-CQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":2,"created_at":"2026-05-20T13:43:27.000000Z","updated_at":"2026-05-20T13:43:27.000000Z"},{"contentId":5,"title":"There There","releaseYear":2018,"description":"PULITZER PRIZE FINALIST \u2022 NATIONAL BESTSELLER \u2022 A wondrous and shattering award-winning novel that follows twelve characters from Native communities: all traveling to the Big Oakland Powwow, all connected to one another in ways they may not yet realize. A contemporary classic, this \u201castonishing literary debut\u201d (Margaret Atwood, bestselling author of The Handmaid\u2019s Tale) \u201cplaces Native American voices front and center\u201d (NPR\/Fresh Air). One of The Atlantic\u2019s Great American Novels of the Past 100 Years Among them is Jacquie Red Feather, newly sober and trying to make it back to the family she left behind. Dene Oxendene, pulling his life together after his uncle\u2019s death and working at the powwow to honor his memory. Fourteen-year-old Orvil, coming to perform traditional dance for the very first time. They converge and collide on one fateful day at the Big Oakland Powwow and together this chorus of voices tells of the plight of the urban Native American\u2014grappling with a complex and painful history, with an inheritance of beauty and spirituality, with communion and sacrifice and heroism A book with \u201cso much jangling energy and brings so much news from a distinct corner of American life that it\u2019s a revelation\u201d (The New York Times). It is fierce, funny, suspenseful, and impossible to put down--full of poetry and rage, exploding onto the page with urgency and force. There There is at once poignant and unflinching, utterly contemporary and truly unforgettable. Don''t miss Tommy Orange''s new book, Wandering Stars!","image":"http:\/\/books.google.com\/books\/content?id=oNY0DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":2,"created_at":"2026-05-20T13:43:28.000000Z","updated_at":"2026-05-20T13:43:28.000000Z"},{"contentId":6,"title":"Fugitive Pieces","releaseYear":1997,"description":"A stunning debut novel from an award-winning poet. Jakob Beer, traumatically orphaned as a young child during World War II, learns over his lifetime the power of language to destroy, omit, and obliterate, and also to restore, conjure and witness, as he comes to understand and experience the extent of what was lost to him and of what is possible to regain.","image":"http:\/\/books.google.com\/books\/content?id=EIHmvTdDOVoC&printsec=frontcover&img=1&zoom=1&source=gbs_api","type":"book","emotionId":7,"created_at":"2026-05-20T13:43:29.000000Z","updated_at":"2026-05-20T13:43:29.000000Z"},{"contentId":7,"title":"The Last Man","releaseYear":2019,"description":"First published in 1826, The Last Man is an apocalyptic sci-ence fiction work by Mary Shelley. A courtly society at the crossroads between monarchy and republic is afflicted by a serious epidemic that threatens the survival of all mankind. Will Lionel be able to save the few who are faithful to him? In addition to an exciting novel, Shelley also succeeds in in-terweaving autobiographical, historical and scientific aspects into the story.","image":"http:\/\/books.google.com\/books\/content?id=5nNpEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":1,"created_at":"2026-05-20T13:43:30.000000Z","updated_at":"2026-05-20T13:43:30.000000Z"},{"contentId":8,"title":"The Street of Crocodiles","releaseYear":2025,"description":"''''The Street of Crocodiles'''' by Bruno Schulz (1892-1942) was first published in Polish in 1934; this English translation was first published in the US by Walker and Company in 1963, public domain. A novel that blends the real and the fantastic, from \"one of the most original imaginations in modern Europe\" (Cynthia Ozick). The Street of Crocodiles in the Polish city of Drogobych is a street of memories and dreams where recollections of Bruno Schulz''s uncommon boyhood and of the eerie side of his merchant family''s life are evoked in a startling blend of the real and the fantastic. Most memorable - and most chilling - is the portrait of the author''s father, a maddened shopkeeper who imports rare birds'' eggs to hatch in his attic, who believes tailors'' dummies should be treated like people, and whose obsessive fear of cockroaches causes him to resemble one. Bruno Schulz, a Polish Jew killed by the Nazis in 1942, is considered by many to have been the leading Polish writer between the two world wars.","image":"http:\/\/books.google.com\/books\/content?id=v7VPEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":10,"created_at":"2026-05-20T13:43:31.000000Z","updated_at":"2026-05-20T13:43:31.000000Z"},{"contentId":9,"title":"Oliver Twist","releaseYear":2019,"description":"JAICO ILLUSTARTED CLASSICS SERIES is a collection of beloved children\u2019s classics read by generations all over the world. Rich with adventures and thrills, these immortal stories with vivid illustrations are designed to delight young readers. IN A RAMSHACKLE workhouse of a parish in England, a baby boy was born to a woman who died in childbirth. The boy was named OLIVER TWIST. He spent a sad childhood in abject misery in various workhouses. At the age of twelve, he runs away to London where he is picked up by a notorious criminal, Fagin, a mastermind at house breaking, pickpocketing and petty thievery. He teaches Oliver all these evil deeds. But a kind-hearted gentleman robbed by Fagin sympathizes with the plight of Oliver and helps him to find a family, his inheritance and above all Oliver\u2019s true identity. CHARLES DICKENS was born in a little house in Landport, Portsea, England. The second of eight children, he grew up in a family frequently beset by financial insecurity. When the family fortunes improved, Dickens went back to school, after which he became an office boy, a freelance reporter, and finally an author.","image":"http:\/\/books.google.com\/books\/content?id=3oSqDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":9,"created_at":"2026-05-20T13:43:32.000000Z","updated_at":"2026-05-20T13:43:32.000000Z"},{"contentId":10,"title":"The Picture of Dorian Gray","releaseYear":2019,"description":"The Picture of Dorian Gray is the only published novel by Oscar Wilde, appearing as the lead story in Lippincott''s Monthly Magazine on 20 June 1890, printed as the July 1890 issue. The magazine''s editors feared the story was indecent as submitted, so they censored roughly 500 words, without Wilde''s knowledge, before publication. But even with that, the story was still greeted with outrage by British reviewers, some of whom suggested that Wilde should be prosecuted on moral grounds, leading Wilde to defend the novel aggressively in letters to the British press. Today, Wilde''s fin de si\u00e8cle novella is considered a classic. This new edition from Immortal Books includes footnotes and images.","image":"http:\/\/books.google.com\/books\/content?id=6vGiDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":5,"created_at":"2026-05-20T13:43:33.000000Z","updated_at":"2026-05-20T13:43:33.000000Z"},{"contentId":11,"title":"Japanese Garden Design","releaseYear":2026,"description":"\"Marc Peter Keane is the undisputed American master of Japanese garden scholars; he is also an educator and garden designer in his own right. Two of his previous books Japanese Garden Design and The Art of Setting Stones are indispensable.\" \u2014The New York Times In Japanese Garden Design landscape architect Marc Peter Keane presents a complete overview of the history and development of the principles that underlie all Japanese gardens\u2014a respect for nature combined with profound concepts of aesthetics and structure. Keane is one of the world''s leading designers of Japanese-style gardens and he describes in detail the historical influences of Confucian, Shinto and Buddhist ideas that have linked poetry and philosophy to the tangible forms of gardens in Japan. Creative inspiration is found in prehistoric Japanese conceptions of nature, gardens of the Heian-era aristocrats, world-renowned Zen Buddhist temple rock gardens and tea gardens; compact courtyard gardens and large-scale Edo-era stroll gardens. Detailed explanations of these basic forms identify and interpret the symbolism and principles behind them and explain how they are still in active use today. Topics covered include: Early Gardens: Poetry in Paradise Gardens of the Heian Aristocrats Zen Gardens: The Art of Emptiness The Tea Garden: A Spiritual Passage Tsubo Gardens: Private Niches Edo Stroll Gardens: A Collector''s Park Filled with gorgeous photographs and expert text by a leading garden designer, this book explains the theory and practice of Japanese gardening from an insider''s point of view. It will be treasured by all Japanese garden lovers and visitors to Japan.","image":"http:\/\/books.google.com\/books\/content?id=iffFEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":10,"created_at":"2026-05-20T14:26:59.000000Z","updated_at":"2026-05-20T14:26:59.000000Z"},{"contentId":12,"title":"Photographic Guide to the Birds of Indonesia","releaseYear":2013,"description":"A Photographic Guide to the Birds of Indonesia is the best, most comprehensive photographic guide to the birds of Indonesia. Because of its vast size and geographical location, Indonesia has the world''s most diverse avifauna. It boasts of more than 1,600 species--of which 235 rare birds are only found in Indonesia--making it the world''s number one travel destination for bird-watching. This bird field guide covers a total of 912 species, including most of the non-migratory and endemic species that are seen only in Indonesia and a number of threatened and endangered species. A photograph and distribution map is given for each bird. Many new photographs of Indonesian birds appear in this volume for the first time and have been carefully selected to show the important characteristics of each bird. The concise text provides vital information, and an index of common names is provided at the back of the book.","image":"http:\/\/books.google.com\/books\/content?id=0hnRAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":3,"created_at":"2026-05-20T14:27:00.000000Z","updated_at":"2026-05-20T14:27:00.000000Z"},{"contentId":13,"title":"Pinocchio","releaseYear":2006,"description":"Includes 39 lithograps. Words and phrases, objects in themselves, have been an ongoing subject in Dine''s art; here those words and phrases are Collodi''s.","image":"http:\/\/books.google.com\/books\/content?id=-p-fPwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api","type":"book","emotionId":10,"created_at":"2026-05-20T14:27:01.000000Z","updated_at":"2026-05-20T14:27:01.000000Z"},{"contentId":14,"title":"Italian Science Fiction","releaseYear":2019,"description":"This book explores Italian science fiction from 1861, the year of Italy\u2019s unification, to the present day, focusing on how this genre helped shape notions of Otherness and Normalness. In particular, Italian Science Fiction draws upon critical race studies, postcolonial theory, and feminist studies to explore how migration, colonialism, multiculturalism, and racism have been represented in genre film and literature. Topics include the role of science fiction in constructing a national identity; the representation and self-representation of \u201calien\u201d immigrants in Italy; the creation of internal \u201cOthers,\u201d such as southerners and Roma; the intersections of gender and race discrimination; and Italian science fiction\u2019s transnational dialogue with foreign science fiction. This book reveals that though it is arguably a minor genre in Italy, science fiction offers an innovative interpretive angle for rethinking Italian history and imagining future change in Italian society.","image":"http:\/\/books.google.com\/books\/content?id=lOijDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":1,"created_at":"2026-05-20T14:27:02.000000Z","updated_at":"2026-05-20T14:27:02.000000Z"},{"contentId":15,"title":"Reporting the Siege of Sarajevo","releaseYear":2021,"description":"The first comprehensive study of the reporting of the Siege of Sarajevo (1992-96), the longest siege in modern European history.","image":"http:\/\/books.google.com\/books\/content?id=8x0LEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":10,"created_at":"2026-05-20T14:27:03.000000Z","updated_at":"2026-05-20T14:27:03.000000Z"},{"contentId":16,"title":"The Films of Ingmar Bergman","releaseYear":2007,"description":"Laura Hubner is one of the first critics to analyse the elements of ''illusion'' in key films by Bergman and relate these to cultural and artistic influences on his creative output, the phenomenon of Bergman as ''art film'' director, and debates about modernism, postmodernism and emerging feminist discourses on gender and multiplicity.","image":"http:\/\/books.google.com\/books\/content?id=FBqFDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":7,"created_at":"2026-05-20T14:27:03.000000Z","updated_at":"2026-05-20T14:27:03.000000Z"},{"contentId":17,"title":"Steadicam","releaseYear":2001,"description":"In this unique study, Serena Ferrara examines the revolutionary impact of the Steadicam on filmmaking. The Steadicam has freed-up the camera operator to follow a film''s movement, wherever it is happening. Serena Ferrara explains the principles by which the Steadicam is operated and the impact it has on filmmaking, including the effects it can produce on screen, on a film''s narrative, on its audience, and on the director''s creativity. Also featured are interviews with movie industry professionals, in which a variety of views of the Steadicam are presented in an open discussion. Interviewees include: Garrett Brown Giuseppe Rotunno John Carpenter Mario Orfini Larry McConkey Nicola Pecorini Haskell Wexler Ed DiGiulio Vittorio Storaro Caroline Goodall Anyone involved in, or fascinated by, the process of filmmaking with find this an enlightening and inspirational study.","image":"http:\/\/books.google.com\/books\/content?id=9CNuOldC1t0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":5,"created_at":"2026-05-20T14:27:04.000000Z","updated_at":"2026-05-20T14:27:04.000000Z"},{"contentId":18,"title":"Rain of Ruin","releaseYear":1995,"description":"Contains more than 400 photographs of Hiroshima and Nagasaki before, during, and after those fateful days","image":"http:\/\/books.google.com\/books\/content?id=Y92QJDY7PLUC&printsec=frontcover&img=1&zoom=1&source=gbs_api","type":"book","emotionId":8,"created_at":"2026-05-20T14:27:05.000000Z","updated_at":"2026-05-20T14:27:05.000000Z"},{"contentId":19,"title":"Sony a7 Series","releaseYear":2015,"description":"Now that you\u2019ve bought the amazing Sony a7 series camera, you need a book that goes beyond a tour of the camera\u2019s features to show you exactly how to use the camera to take great pictures. With Sony a7 Series: From Snapshots to Great Shots, you get the perfect blend of photography instruction and camera reference that will take your images to the next level! Beautifully illustrated with large, vibrant photos, this book teaches you how to take control of your photography to get the image you want every time you pick up the camera. Follow along with your friendly and knowledgeable guide, Pulitzer Prize\u2014winning photographer and author Brian Smith, and you will: Learn the top ten things you need to know about shooting with the Sony a7 series cameras Learn to use the camera\u2019s advanced camera settings to gain full control over the look and feel of your images Master the photographic basics of composition, focus, depth of field, and much more Learn all the best tricks and techniques for getting great action shots, landscapes, and portraits Find out how to get great photos in low light Learn the basics behind shooting video with your a7 series camera and start making movies of your own Understand the nuances of your menu settings and how to customize your camera Learn more about lens mount adopters, creative compositions, and accessories through three downloadable bonus chapters Grasp all the concepts and techniques as you go, with assignments at the end of every chapter And once you\u2019ve got the shot, show it off! Join the book\u2019s Flickr group, share your photos, and discuss how you use your camera to get great shots at flickr.com\/groups\/sonya7-a7rfromsnapshotstogreatshots.","image":"http:\/\/books.google.com\/books\/content?id=pCFlCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":6,"created_at":"2026-05-20T14:27:06.000000Z","updated_at":"2026-05-20T14:27:06.000000Z"},{"contentId":20,"title":"Photographic Guide to the Birds of Southeast Asia","releaseYear":2009,"description":"Whether traveling through Southeast Asia or relaxing at home, bird lovers will enjoy this thorough and colorful bird watching guide. A Photographic Guide to the Birds of Southeast Asia is the first comprehensive photographic guide to the birds of mainland Southeast Asia, the Philippines and Borneo. It covers important bird species found in Malaysia, Singapore, Thailand, Cambodia and Vietnam, as well as southern China, Hong Kong, Taiwan and the Philippines. Of an estimated 10,000 living bird species in the world, Southeast Asia is home to over 3,000 of them--making this one of the most diverse avifaunal regions on the planet and a birdwatcher''s paradise. This comprehensive guide covers over 660 species and has more than 700 color photographs. It is an invaluable guide to anyone planning a visit to Asia who is interested in birds. It gives a distribution map for each species and a checklist at the back. Many of the photographs in this book appear for the first time and have been carefully selected to illustrate the most important species and their key features. The text provides vital information to ensure accurate identifications. A Photographic Guide to the Birds of Southeast Asia is indispensable reading for bird lovers everywhere.","image":"http:\/\/books.google.com\/books\/content?id=EdLZAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":6,"created_at":"2026-05-20T14:27:07.000000Z","updated_at":"2026-05-20T14:27:07.000000Z"},{"contentId":21,"title":"The Plague of Fantasies","releaseYear":1997,"description":"Slavoj Zizek is, without doubt, one of the most stimulating and vibrant thinkers of our time, and his idiosyncratic blend of Lacan and Hegel is always sparkling with insight and studded with amusing stories, anecdotes and jokes. In The Plague of Fantasies Zizek approaches another enormous subject with characteristic brio and provocativeness. The current epoch is plagued by fantasms: there is an ever intensifying antagonism between the process of ever greater abstraction of our lives\u2014whether in the form of digitalization or market relations\u2014and the deluge of pseudo-concrete images which surround us. Traditional critical thought would have sought to trace the roots of abstract notions in concrete social reality; but today, the correct procedure is the inverse\u2014from pseudo-concrete imagery to the abstract process which structures our lives. Ranging in his examples from national differences in toilet design to cybersex, and from intellectuals'' responses to the Bosnian war to Robert Schumann''s music, Zizek explores the relations between fantasy and ideology, the way in which fantasy animates enjoy-ment while protecting against its excesses, the associations of the notion of fetishism with fantasized seduction, and the ways in which digitalization and cyberspace affect the status of subjectivity. To the already initiated, The Plague of Fantasies will be a welcome reminder of why they enjoy Zizek''s writing so much. For new readers, it will be the beginning of a long and meaningful relationship.","image":"http:\/\/books.google.com\/books\/content?id=NM5PqgKd2dsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":10,"created_at":"2026-05-20T14:27:44.000000Z","updated_at":"2026-05-20T14:27:44.000000Z"},{"contentId":22,"title":"A Wizard of Earthsea","releaseYear":2012,"description":"A boy grows to manhood while attempting to subdue the evil he unleashed on the world as an apprentice to the Master Wizard.","image":"http:\/\/books.google.com\/books\/content?id=FD72ekYZqIkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":7,"created_at":"2026-05-20T14:27:45.000000Z","updated_at":"2026-05-20T14:27:45.000000Z"},{"contentId":23,"title":"Gifts","releaseYear":2004,"description":"A darkly compelling fantasy about a world in which each person has a magical, dangerous gift.","image":"http:\/\/books.google.com\/books\/content?id=UY7bjfq3mYkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":9,"created_at":"2026-05-20T14:27:45.000000Z","updated_at":"2026-05-20T14:27:45.000000Z"},{"contentId":24,"title":"The Wind in the Willows","releaseYear":1993,"description":"The escapades of four animal friends who live along a river in the English countryside--Toad, Mole, Rat, and Badger.","image":"http:\/\/books.google.com\/books\/content?id=Mo7D3Je7_DMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":8,"created_at":"2026-05-20T14:27:46.000000Z","updated_at":"2026-05-20T14:27:46.000000Z"},{"contentId":25,"title":"The Dark Tower VII","releaseYear":2004,"description":"Sams Local 11-7-2004 $35.00.","image":"http:\/\/books.google.com\/books\/content?id=Geq0uKAxZPEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":9,"created_at":"2026-05-20T14:27:47.000000Z","updated_at":"2026-05-20T14:27:47.000000Z"},{"contentId":26,"title":"Crown of Midnight","releaseYear":2013,"description":"Eighteen-year-old Celaena Sardothien is bold, daring and beautiful - the perfect seductress and the greatest assassin her world has ever known. But though she won the King''s contest and became his champion, Celaena has been granted neither her liberty nor the freedom to follow her heart. The slavery of the suffocating salt mines of Endovier that scarred her past is nothing compared to a life bound to her darkest enemy, a king whose rule is so dark and evil it is near impossible to defy. Celaena faces a choice that is tearing her heart to pieces: kill in cold blood for a man she hates, or risk sentencing those she loves to death. Celaena must decide what she will fight for: survival, love or the future of a kingdom. Because an assassin cannot have it all ...And trying to may just destroy her. Love or loathe Celaena, she will slice open your heart with her dagger and leave you bleeding long after the last page of this New York Times bestselling sequel, in what is undeniably THE hottest new fantasy series.","image":"http:\/\/books.google.com\/books\/content?id=7bTeIug-jFEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":8,"created_at":"2026-05-20T14:27:48.000000Z","updated_at":"2026-05-20T14:27:48.000000Z"},{"contentId":27,"title":"Tales from Earthsea","releaseYear":2002,"description":"Exploring the legend of Earthsea''s history, people, languages, literature, and magic, this collection of four magical stories is now available in a paperback edition.","image":"http:\/\/books.google.com\/books\/content?id=Fc4vX8-vQPgC&printsec=frontcover&img=1&zoom=1&source=gbs_api","type":"book","emotionId":3,"created_at":"2026-05-20T14:27:49.000000Z","updated_at":"2026-05-20T14:27:49.000000Z"},{"contentId":28,"title":"Prince Caspian Movie Tie-in Edition (rack)","releaseYear":2008,"description":"This movie tie-in edition of the full original PRINCE CASPIAN novel will be rack size, and feature a movie cover and an 8-page movie still insert.","image":"http:\/\/books.google.com\/books\/content?id=4bn7XhMeBH8C&printsec=frontcover&img=1&zoom=1&source=gbs_api","type":"book","emotionId":9,"created_at":"2026-05-20T14:27:50.000000Z","updated_at":"2026-05-20T14:27:50.000000Z"},{"contentId":29,"title":"The Happy Prince and Other Tales","releaseYear":1888,"description":null,"image":"http:\/\/books.google.com\/books\/content?id=vVKeG7xD_WkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":7,"created_at":"2026-05-20T14:27:50.000000Z","updated_at":"2026-05-20T14:27:50.000000Z"},{"contentId":30,"title":"Friends Learn Ballet","releaseYear":1985,"description":"Ellie practices ballet steps with her friend Natalie and both dream of becoming ballet dancers. Includes a vocabulary list, discussion questions, and a note for grownups.","image":"http:\/\/books.google.com\/books\/content?id=sEAZiIiZEJYC&printsec=frontcover&img=1&zoom=1&source=gbs_api","type":"book","emotionId":8,"created_at":"2026-05-20T14:28:42.000000Z","updated_at":"2026-05-20T14:28:42.000000Z"},{"contentId":31,"title":"Henry''s Leg","releaseYear":1986,"description":null,"image":"http:\/\/books.google.com\/books\/content?id=DYWzQAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api","type":"book","emotionId":10,"created_at":"2026-05-20T14:28:43.000000Z","updated_at":"2026-05-20T14:28:43.000000Z"},{"contentId":32,"title":"School Days","releaseYear":1997,"description":"Laura and her sisters share some good and bad times when they attend different schools near their various prairie homes.","image":"http:\/\/books.google.com\/books\/content?id=qGsZxfIV49wC&printsec=frontcover&img=1&zoom=1&source=gbs_api","type":"book","emotionId":5,"created_at":"2026-05-20T14:28:43.000000Z","updated_at":"2026-05-20T14:28:43.000000Z"},{"contentId":33,"title":"Bad Magic","releaseYear":2014,"description":"Thirteen-year-old Clay, a boy who no longer believes in magic, tags graffiti on his classroom wall and, as punishment, is sent to a camp for wayward kids located on a volcanic island, where eccentric campmates abound, a ghost walks among the abandoned ruins of a mansion, and a dangerous force threatens to erupt with bad magic.","image":"http:\/\/books.google.com\/books\/content?id=leRlrgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api","type":"book","emotionId":2,"created_at":"2026-05-20T14:28:44.000000Z","updated_at":"2026-05-20T14:28:44.000000Z"},{"contentId":34,"title":"Keep of the Ancient King; Illus by Michael Fishel; Cover Art by Keith Parkinson","releaseYear":1983,"description":null,"image":null,"type":"book","emotionId":6,"created_at":"2026-05-20T14:28:45.000000Z","updated_at":"2026-05-20T14:28:45.000000Z"},{"contentId":35,"title":"Spring Is Here","releaseYear":2000,"description":"Follows the four seasons around the year, from snow melting into spring, through the quiet harvest and the fall of snow, and then to spring again.","image":"http:\/\/books.google.com\/books\/content?id=zlkJYAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api","type":"book","emotionId":7,"created_at":"2026-05-20T14:28:46.000000Z","updated_at":"2026-05-20T14:28:46.000000Z"},{"contentId":36,"title":"Cleopatra VII","releaseYear":1999,"description":"While her father is in hiding after attempts on his life, twelve-year-old Cleopatra records in her diary how she fears for her own safety and hopes to survive to become Queen of Egypt some day.","image":null,"type":"book","emotionId":5,"created_at":"2026-05-20T14:28:47.000000Z","updated_at":"2026-05-20T14:28:47.000000Z"},{"contentId":37,"title":"The Silver Door","releaseYear":2010,"description":"When Genna is chosen as the Sunrider of prophecy, her destiny is to unite the magic of the sun and the moon for the good of both Nightlings and humans.","image":"http:\/\/books.google.com\/books\/content?id=Sj5MWqEPsDkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api","type":"book","emotionId":1,"created_at":"2026-05-20T14:28:47.000000Z","updated_at":"2026-05-20T14:28:47.000000Z"},{"contentId":38,"title":"The Grizzly","releaseYear":1964,"description":"Eleven-year old David is forced to take charge when a grizzly injures his father. He finds resources in himself he never dreamed he had.","image":null,"type":"book","emotionId":1,"created_at":"2026-05-20T14:28:48.000000Z","updated_at":"2026-05-20T14:28:48.000000Z"},{"contentId":39,"title":"Stalky & Co","releaseYear":1938,"description":null,"image":null,"type":"book","emotionId":6,"created_at":"2026-05-20T14:28:49.000000Z","updated_at":"2026-05-20T14:28:49.000000Z"}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/books/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the book.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Content] consequatur"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/books
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/books/by-emotion/{emotionId}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      emotionId:
+        custom: []
+        name: emotionId
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      emotionId: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 404
+        content: '{"error":"Emotion not found"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/emotions
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '[{"emotionId":1,"emotionName":"calm","created_at":null,"updated_at":null},{"emotionId":2,"emotionName":"happy","created_at":null,"updated_at":null},{"emotionId":3,"emotionName":"sad","created_at":null,"updated_at":null},{"emotionId":4,"emotionName":"intense","created_at":null,"updated_at":null},{"emotionId":5,"emotionName":"dark","created_at":null,"updated_at":null},{"emotionId":6,"emotionName":"romantic","created_at":null,"updated_at":null},{"emotionId":7,"emotionName":"adventurous","created_at":null,"updated_at":null},{"emotionId":8,"emotionName":"nostalgic","created_at":null,"updated_at":null},{"emotionId":9,"emotionName":"inspiring","created_at":null,"updated_at":null},{"emotionId":10,"emotionName":"reflective","created_at":null,"updated_at":null}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/books/import/random-genre
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/users
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '[{"id":1,"name":"Test User","email":"test@example.com","email_verified_at":"2026-05-20 13:42:58","remember_token":"EA7QscZKrF","created_at":"2026-05-20T13:42:59.000000Z","updated_at":"2026-05-20T13:42:59.000000Z"}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/users/{id}/lists'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 17
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/users/{userId}/lists'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      userId:
+        custom: []
+        name: userId
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      userId: 17
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/users/{userId}/discarded/{contentId}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      userId:
+        custom: []
+        name: userId
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      contentId:
+        custom: []
+        name: contentId
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      userId: 17
+      contentId: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/users/{userId}/discarded'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      userId:
+        custom: []
+        name: userId
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      userId: 17
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '[]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/lists/{listId}/items'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      listId:
+        custom: []
+        name: listId
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      listId: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/lists/{listId}/items'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      listId:
+        custom: []
+        name: listId
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      listId: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/lists/{listId}/items/{contentId}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      listId:
+        custom: []
+        name: listId
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      contentId:
+        custom: []
+        name: contentId
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      listId: consequatur
+      contentId: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/recommendations
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
