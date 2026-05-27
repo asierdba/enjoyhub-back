@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: __DIR__.'/../routes/health.php',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->prepend(\Illuminate\Http\Middleware\HandleCors::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
