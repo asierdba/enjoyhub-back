@@ -24,4 +24,11 @@ class UserListController extends Controller
 
         return $list;
     }
+
+    public function deleteList(int $listId)
+    {
+        $list = ListModel::findOrFail($listId);
+        $list->delete();
+        return response()->json(['message' => 'Lista eliminada']);
+    }
 }

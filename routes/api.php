@@ -35,6 +35,7 @@ Route::patch('/users/{userId}/password', [UserController::class, 'updatePassword
 Route::get('/users/{id}/lists', [UserListController::class, 'getListsByUser']);
 
 Route::post('/users/{userId}/lists', [UserListController::class, 'createList']);
+Route::delete('/lists/{listId}', [UserListController::class, 'deleteList']);
 Route::post('/users/{userId}/discarded/{contentId}', [DiscardedController::class, 'addToDiscarded']);
 Route::get('/users/{userId}/discarded', [DiscardedController::class, 'getDiscardedByUser']);
 
