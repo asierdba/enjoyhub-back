@@ -25,6 +25,15 @@ class UserListController extends Controller
         return $list;
     }
 
+    public function updateList(int $listId)
+    {
+        $list = ListModel::findOrFail($listId);
+        $list->listName = request()->name;
+        $list->listDescription = request()->description;
+        $list->save();
+        return $list;
+    }
+
     public function deleteList(int $listId)
     {
         $list = ListModel::findOrFail($listId);
