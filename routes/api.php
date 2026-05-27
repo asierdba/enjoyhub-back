@@ -29,6 +29,9 @@ Route::post('/books/import/random-genre', [BookImportController::class, 'importR
 
 
 Route::get('/users', [UserController::class, 'index']);
+Route::patch('/users/{userId}/icon',     [UserController::class, 'updateProfileIcon']);
+Route::patch('/users/{userId}/profile',  [UserController::class, 'updateProfile']);
+Route::patch('/users/{userId}/password', [UserController::class, 'updatePassword']);
 Route::get('/users/{id}/lists', [UserListController::class, 'getListsByUser']);
 
 Route::post('/users/{userId}/lists', [UserListController::class, 'createList']);
