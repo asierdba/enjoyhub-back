@@ -14,7 +14,7 @@ class Genre extends Model
     public $timestamps = false;       // 👈 tu tabla no tiene created_at ni updated_at
 
     protected $fillable = [
-        'genreName',
+        'name',
     ];
 
     // RELACIÓN: un género tiene muchos contenidos (N:N)

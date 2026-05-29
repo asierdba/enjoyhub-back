@@ -31,20 +31,13 @@ class BookController extends Controller
 
     public function getBooksByEmotion($emotionId)
     {
-
         $emotion = Emotion::find($emotionId);
 
         if (!$emotion) {
             return response()->json(['error' => 'Emotion not found'], 404);
         }
 
-
-        $genreIds = $emotion->genres()->pluck('genreId');
-
-
-        $books = Content::whereHas('genres', function ($q) use ($genreIds) {
-            $q->whereIn('genres.genreId', $genreIds);
-        })->get();
+        $books = Content::with(['authors', 'genres'])->where('emotionId', $emotionId)->get();
 
         return response()->json($books);
     }
