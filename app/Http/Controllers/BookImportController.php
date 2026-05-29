@@ -84,13 +84,36 @@ class BookImportController extends Controller
                 'emotionId' => $emotion?->emotionId,
             ]);
 
-
             Book::create([
                 'contentId' => $content->contentId,
                 'publisher' => $publisher,
                 'isbn' => $industryIdentifiers,
                 'pageCount' => $pageCount,
             ]);
+
+            // 8. Autores
+            $authorNames = $info['authors'] ?? [];
+            $authorIds = [];
+            foreach ($authorNames as $authorName) {
+                $author = \App\Models\Author::firstOrCreate(['authorName' => trim($authorName)]);
+                $authorIds[] = $author->authorId;
+            }
+            if (!empty($authorIds)) {
+                $content->authors()->attach($authorIds);
+            }
+
+            // 9. Géneros (categorías de Google Books → géneros de la BD)
+            $categories = $info['categories'] ?? [];
+            $genreIds = [];
+            foreach ($categories as $category) {
+                $matched = Genre::whereRaw('LOWER(name) = ?', [strtolower(trim($category))])->first();
+                if ($matched) {
+                    $genreIds[] = $matched->genreId;
+                }
+            }
+            if (!empty($genreIds)) {
+                $content->genres()->attach($genreIds);
+            }
 
             $created[] = $content->contentId;
         }
