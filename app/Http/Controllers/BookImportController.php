@@ -58,7 +58,10 @@ class BookImportController extends Controller
 
             $description = $info['description'] ?? null;
             $publishedDate = $info['publishedDate'] ?? null;
-            $image = $info['imageLinks']['thumbnail'] ?? null;
+            $raw = $info['imageLinks']['thumbnail'] ?? null;
+            $image = $raw
+                ? str_replace('&edge=curl', '', preg_replace('/zoom=\d+/', 'zoom=3', $raw))
+                : null;
             $publisher = $info['publisher'] ?? null;
             $pageCount = $info['pageCount'] ?? null;
             $industryIdentifiers = $info['industryIdentifiers'][0]['identifier'] ?? null;

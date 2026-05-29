@@ -9,6 +9,7 @@ use App\Http\Controllers\UserListController;
 use App\Http\Controllers\ListItemController;
 use App\Http\Controllers\DiscardedController;
 use App\Http\Controllers\RecommendationController;
+use App\Http\Controllers\ContactController;
 
 
 
@@ -49,5 +50,7 @@ Route::post('/lists/{listId}/items', [ListItemController::class, 'addItemToList'
 Route::delete('/lists/{listId}/items/{contentId}', [ListItemController::class, 'deleteItemFromList']);
 
 Route::post('/recommendations', [RecommendationController::class, 'getRecommendation']);
+
+Route::post('/contact', [ContactController::class, 'store']);
 
 
