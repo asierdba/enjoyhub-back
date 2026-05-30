@@ -17,13 +17,12 @@ class Discarded extends Model
         'contentId',
     ];
 
-    // RELACIÓN: este registro pertenece a un usuario
+
     public function user()
     {
         return $this->belongsTo(User::class, 'userId', 'userId');
     }
 
-    // RELACIÓN: este registro pertenece a un contenido
     public function content()
     {
         return $this->belongsTo(Content::class, 'contentId', 'contentId');

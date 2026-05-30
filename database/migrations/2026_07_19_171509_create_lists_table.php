@@ -17,11 +17,8 @@ return new class extends Migration
             $table->text('listDescription')->nullable();
             $table->timestamp('createdAt')->useCurrent();
             $table->unsignedBigInteger('userId');
+            $table->foreign('userId')->references('userId')->on('users')->onDelete('cascade');
 
-            $table->foreign('userId')
-                ->references('userId')
-                ->on('users')
-                ->onDelete('cascade');
         });
     }
 

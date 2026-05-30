@@ -20,6 +20,21 @@ class EmotionSeeder extends Seeder
             'nostalgic',
             'inspiring',
             'reflective',
+            'excited',
+            'mysterious',
+            'hopeful',
+            'funny',
+            'tense',
+            'emotional',
+            'scary',
+            'passionate',
+            'dramatic',
+            'peaceful',
+            'energetic',
+            'dreamy',
+            'thrilling',
+            'heartwarming',
+            'melancholic',
         ];
 
         foreach ($emotions as $name) {
