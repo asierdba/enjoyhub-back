@@ -9,22 +9,22 @@ class Genre extends Model
 {
     use HasFactory;
 
-    protected $table = 'genres';      // 👈 nombre real de la tabla
+    protected $table = 'genres';      
     protected $primaryKey = 'genreId';
-    public $timestamps = false;       // 👈 tu tabla no tiene created_at ni updated_at
+    public $timestamps = false;      
 
     protected $fillable = [
         'name',
     ];
 
-    // RELACIÓN: un género tiene muchos contenidos (N:N)
+
     public function contents()
     {
         return $this->belongsToMany(
             Content::class,
-            'genre_content',   // tabla pivote
-            'genreId',         // FK en genre_content que apunta a genres
-            'contentId'        // FK en genre_content que apunta a contents
+            'genre_content', 
+            'genreId',        
+            'contentId'      
         );
     }
 }
