@@ -12,7 +12,6 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        // Usuarios de prueba
 
         User::factory()->create([
             'userName' => 'Test User',
@@ -21,6 +20,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(EmotionSeeder::class);
         $this->call(GenreSeeder::class);
+        $this->call(AdminUserSeeder::class);
+        $this->call(\Database\Seeders\AllBooksSeeder::class);
 
     }
 }
