@@ -10,48 +10,54 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        // Validación mínima
         $request->validate([
-            'email' => 'required|email|unique:users,email',
+            'email'    => 'required|email|unique:users,email',
             'userName' => 'required',
-            'password' => 'required'
+            'password' => 'required',
         ]);
 
-        // Crear usuario
-        $user = User::create([
-            'email' => $request->email,
-            'userName' => $request->userName,
-            'password' => Hash::make($request->password),
-            'role' => 'standard',
-            'profileIcon' => null
+        $user  = User::create([
+            'email'       => $request->email,
+            'userName'    => $request->userName,
+            'password'    => Hash::make($request->password),
+            'role'        => 'user',
+            'profileIcon' => $request->profileIcon,
         ]);
+        $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
             'message' => 'Usuario registrado',
-            'user' => $user
+            'token'   => $token,
+            'user'    => $user,
         ]);
     }
 
     public function login(Request $request)
     {
-        // Validación mínima
         $request->validate([
-            'email' => 'required',
-            'password' => 'required'
+            'email'    => 'required',
+            'password' => 'required',
         ]);
 
-        // Buscar usuario
         $user = User::where('email', $request->email)->first();
 
-        // Comprobar contraseña
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json(['message' => 'Credenciales incorrectas'], 401);
         }
 
+        $user->tokens()->delete();
+        $token = $user->createToken('auth_token')->plainTextToken;
+
         return response()->json([
             'message' => 'Login correcto',
-            'user' => $user
+            'token'   => $token,
+            'user'    => $user,
         ]);
+    }
+
+    public function me(Request $request)
+    {
+        return response()->json($request->user());
     }
 }
 
