@@ -31,7 +31,7 @@ class BookController extends Controller
         $books = Content::with(['authors', 'genres', 'book'])
             ->where('type', 'book')
             ->inRandomOrder()
-            ->limit(20)
+            ->limit(5)
             ->get();
 
         return response()->json($books);
