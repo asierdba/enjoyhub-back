@@ -15,7 +15,7 @@ class ListItemController extends Controller
             ->where('listId', $listId)
             ->pluck('contentId');
 
-        return Content::with(['authors', 'genres'])
+        return Content::with(['authors', 'genres', 'book'])
             ->whereIn('contentId', $contentIds)
             ->get();
     }
