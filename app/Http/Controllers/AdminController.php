@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Http\Controllers\Request;
 use App\Models\ContactMessage;
 
 class AdminController extends Controller

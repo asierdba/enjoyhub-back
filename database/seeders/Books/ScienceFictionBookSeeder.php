@@ -19,12 +19,12 @@ class ScienceFictionBookSeeder extends Seeder
             'Dune' => 19,
             'Neuromancer' => 15,
             "Ender's Game" => 13,
-            'Snow Crash' => 23,
+            'Snow Crash' => 3,
             'The Left Hand of Darkness' => 12,
             'Hyperion' => 19,
             'The Martian' => 11,
             'Foundation' => 10,
-            'Brave New World' => 5,
+            'Brave New World' => 4,
             'The War of the Worlds' => 17,
         ];
 

@@ -16,7 +16,7 @@ class SelfHelpBookSeeder extends Seeder
         $genre = Genre::firstOrCreate(['name' => 'SelfHelp']);
 
         $emotionMap = [
-            'The 7 Habits of Highly Effective People' => 21,
+            'The 7 Habits of Highly Effective People' => 3,
             'How to Win Friends and Influence People' => 11,
             'Atomic Habits' => 21,
             'The Power of Now' => 16,

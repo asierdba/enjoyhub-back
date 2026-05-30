@@ -16,7 +16,7 @@ class PhilosophyBookSeeder extends Seeder
         $genre = Genre::firstOrCreate(['name' => 'Philosophy']);
 
         $emotionMap = [
-            'Meditations' => 16,
+            'Meditations' => 1,
             'Beyond Good and Evil' => 19,
             'The Republic' => 10,
             'Critique of Pure Reason' => 9,
