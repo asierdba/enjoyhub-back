@@ -1,3 +1,5 @@
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/deddff8f-6811-4771-b9c5-179a574e828e" />
+
 EnjoyHub Backend — Laravel API
 A clean, modular and developer‑friendly backend built with Laravel, powering the EnjoyHub platform.
 This API manages books, genres, emotions, user lists, recommendations, imports from Google Books, and admin tools.
