@@ -11,7 +11,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $primaryKey = 'userId'; // 👈 CLAVE PRIMARIA CORRECTA
+    protected $primaryKey = 'userId';
     public $incrementing = true;
     protected $keyType = 'int';
 

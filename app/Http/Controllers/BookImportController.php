@@ -66,18 +66,18 @@ class BookImportController extends Controller
             $pageCount = $info['pageCount'] ?? null;
             $industryIdentifiers = $info['industryIdentifiers'][0]['identifier'] ?? null;
 
-            // 5. Año
+
             $year = null;
             if ($publishedDate) {
                 $year = (int) Str::substr($publishedDate, 0, 4);
             }
 
-            // 6. Emoción IA
+
             $emotionName = $this->emotionAI->getEmotionFromTitle($title);
             $emotion = Emotion::where('emotionName', $emotionName)->first()
                 ?? Emotion::inRandomOrder()->first();
 
-            // 7. Crear Content
+
             $content = Content::create([
                 'title' => $title,
                 'releaseYear' => $year,
@@ -94,7 +94,7 @@ class BookImportController extends Controller
                 'pageCount' => $pageCount,
             ]);
 
-            // 8. Autores
+
             $authorNames = $info['authors'] ?? [];
             $authorIds = [];
             foreach ($authorNames as $authorName) {
@@ -105,7 +105,7 @@ class BookImportController extends Controller
                 $content->authors()->attach($authorIds);
             }
 
-            // 9. Géneros (categorías de Google Books → géneros de la BD)
+
             $categories = $info['categories'] ?? [];
             $genreIds = [];
             foreach ($categories as $category) {

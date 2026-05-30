@@ -8,39 +8,6 @@ use App\Models\ListItem;
 
 class RecommendationController extends Controller
 {
-    /**
- * @OA\Post(
- *     path="/api/recommendations",
- *     summary="Obtiene una recomendación de libro según emociones",
- *     tags={"Recomendaciones"},
- *     @OA\RequestBody(
- *         required=true,
- *         @OA\JsonContent(
- *             type="object",
- *             @OA\Property(
- *                 property="emotions",
- *                 type="array",
- *                 @OA\Items(type="string"),
- *                 example={"happy", "romantic"}
- *             ),
- *             @OA\Property(
- *                 property="userId",
- *                 type="integer",
- *                 nullable=true,
- *                 example=5
- *             )
- *         )
- *     ),
- *     @OA\Response(
- *         response=200,
- *         description="Libro recomendado devuelto correctamente"
- *     ),
- *     @OA\Response(
- *         response=404,
- *         description="No hay recomendaciones disponibles"
- *     )
- * )
- */
 
     public function getRecommendation()
     {
