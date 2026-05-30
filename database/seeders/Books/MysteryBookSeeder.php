@@ -17,7 +17,7 @@ class MysteryBookSeeder extends Seeder
 
         $emotionMap = [
             'The Girl with the Dragon Tattoo' => 15,
-            'Gone Girl' => 23,
+            'Gone Girl' => 4,
             'The Da Vinci Code' => 5,
             'Big Little Lies' => 13,
             'The Hound of the Baskervilles' => 10,

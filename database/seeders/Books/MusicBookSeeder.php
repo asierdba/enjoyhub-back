@@ -25,7 +25,7 @@ class MusicBookSeeder extends Seeder
             'The Song Machine' => 13,
             'Miles: The Autobiography' => 16,
             'Please Kill Me' => 15,
-            'The History of Jazz' => 10,
+            'The History of Jazz' => 2,
         ];
 
         $books = [

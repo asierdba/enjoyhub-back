@@ -20,11 +20,11 @@ class PhotographyBookSeeder extends Seeder
             'The Photographer\'s Eye' => 9,
             'Magnum Contact Sheets' => 12,
             'Annie Leibovitz at Work' => 16,
-            'The Americans' => 11,
+            'The Americans' => 2,
             'Understanding Exposure' => 21,
             'Humans of New York' => 13,
             'The Negative' => 10,
-            'Street Photography Now' => 9,
+            'Street Photography Now' => 1,
             'The Camera' => 8,
         ];
 

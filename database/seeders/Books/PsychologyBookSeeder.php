@@ -19,7 +19,7 @@ class PsychologyBookSeeder extends Seeder
             'Thinking, Fast and Slow' => 10,
             "Man's Search for Meaning" => 16,
             'Influence: The Psychology of Persuasion' => 21,
-            'The Interpretation of Dreams' => 12,
+            'The Interpretation of Dreams' => 2,
             'Flow: The Psychology of Optimal Experience' => 13,
             'The Power of Habit' => 21,
             'Attachment in Psychotherapy' => 16,
