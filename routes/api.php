@@ -10,8 +10,7 @@ use App\Http\Controllers\ListItemController;
 use App\Http\Controllers\DiscardedController;
 use App\Http\Controllers\RecommendationController;
 use App\Http\Controllers\ContactController;
-
-
+use App\Http\Controllers\AdminController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login',    [AuthController::class, 'login']);
@@ -24,12 +23,9 @@ Route::post('/books', [BookController::class, 'store']);
 
 Route::get('/books/by-emotion/{emotionId}', [BookController::class, 'getBooksByEmotion']);
 
-
-Route::get('/emotions', function () {return \App\Models\Emotion::all();});
+Route::get('/emotions', function () { return \App\Models\Emotion::all(); });
 
 Route::post('/books/import/random-genre', [BookImportController::class, 'importRandomByGenre']);
-
-
 
 Route::get('/users', [UserController::class, 'index']);
 Route::patch('/users/{userId}/icon',     [UserController::class, 'updateProfileIcon']);
@@ -43,8 +39,6 @@ Route::delete('/lists/{listId}', [UserListController::class, 'deleteList']);
 Route::post('/users/{userId}/discarded/{contentId}', [DiscardedController::class, 'addToDiscarded']);
 Route::get('/users/{userId}/discarded', [DiscardedController::class, 'getDiscardedByUser']);
 
-
-
 Route::get('/lists/{listId}/items', [ListItemController::class, 'getItemsByList']);
 Route::post('/lists/{listId}/items', [ListItemController::class, 'addItemToList']);
 Route::delete('/lists/{listId}/items/{contentId}', [ListItemController::class, 'deleteItemFromList']);
@@ -53,4 +47,9 @@ Route::post('/recommendations', [RecommendationController::class, 'getRecommenda
 
 Route::post('/contact', [ContactController::class, 'store']);
 
-
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/admin/users',              [AdminController::class, 'users']);
+    Route::patch('/admin/users/{userId}',   [AdminController::class, 'updateUser']);
+    Route::get('/admin/contact-messages',   [AdminController::class, 'contactMessages']);
+    Route::post('/admin/import-books',      [AdminController::class, 'importBooks']);
+});
