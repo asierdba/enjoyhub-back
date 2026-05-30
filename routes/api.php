@@ -17,9 +17,12 @@ Route::post('/login',    [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->get('/me', [AuthController::class, 'me']);
 
+Route::get('/books/random',[BookController::class, 'getRandom']);
 Route::get('/books', [BookController::class, 'index']);
 Route::get('/books/{id}', [BookController::class, 'show']);
 Route::post('/books', [BookController::class, 'store']);
+
+
 
 Route::get('/books/by-emotion/{emotionId}', [BookController::class, 'getBooksByEmotion']);
 

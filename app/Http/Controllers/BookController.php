@@ -37,7 +37,7 @@ class BookController extends Controller
             return response()->json(['error' => 'Emotion not found'], 404);
         }
 
-        $books = Content::with(['authors', 'genres'])->where('emotionId', $emotionId)->get();
+        $books = Content::with(['authors', 'genres', 'books'])->where('emotionId', $emotionId)->get();
 
         return response()->json($books);
     }
