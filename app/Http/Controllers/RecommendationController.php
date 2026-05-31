@@ -8,6 +8,7 @@ use App\Models\ListItem;
 
 class RecommendationController extends Controller
 {
+
     public function getRecommendation()
     {
 

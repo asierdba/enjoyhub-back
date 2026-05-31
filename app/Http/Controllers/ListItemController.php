@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content;
 use App\Models\ListItem;
 use Illuminate\Support\Facades\DB;
 
@@ -10,13 +11,13 @@ class ListItemController extends Controller
 
     public function getItemsByList(int $listId)
     {
-        $items = DB::table('list_items')
-            ->join('contents', 'list_items.contentId', '=', 'contents.contentId')
-            ->where('list_items.listId', $listId)
-            ->select('contents.*') 
-            ->get();
+        $contentIds = DB::table('list_items')
+            ->where('listId', $listId)
+            ->pluck('contentId');
 
-        return $items;
+        return Content::with(['authors', 'genres', 'book'])
+            ->whereIn('contentId', $contentIds)
+            ->get();
     }
 
     public function addItemToList(int $listId)
@@ -33,15 +34,14 @@ class ListItemController extends Controller
 
         public function deleteItemFromList(int $listId, int $contentId)
     {
-        $item = ListItem::where('listId', $listId)
-                        ->where('contentId', $contentId)
-                        ->first();
+        $deleted = DB::table('list_items')
+            ->where('listId', $listId)
+            ->where('contentId', $contentId)
+            ->delete();
 
-        if (!$item) {
+        if (!$deleted) {
             return response()->json(['message' => 'Item no encontrado'], 404);
         }
-
-        $item->delete();
 
         return response()->json(['message' => 'Item eliminado correctamente']);
     }

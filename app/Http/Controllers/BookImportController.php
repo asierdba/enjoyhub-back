@@ -58,23 +58,26 @@ class BookImportController extends Controller
 
             $description = $info['description'] ?? null;
             $publishedDate = $info['publishedDate'] ?? null;
-            $image = $info['imageLinks']['thumbnail'] ?? null;
+            $raw = $info['imageLinks']['thumbnail'] ?? null;
+            $image = $raw
+                ? str_replace(['http://', '&edge=curl'], ['https://', ''], $raw)
+                : null;
             $publisher = $info['publisher'] ?? null;
             $pageCount = $info['pageCount'] ?? null;
             $industryIdentifiers = $info['industryIdentifiers'][0]['identifier'] ?? null;
 
-            // 5. Año
+
             $year = null;
             if ($publishedDate) {
                 $year = (int) Str::substr($publishedDate, 0, 4);
             }
 
-            // 6. Emoción IA
+
             $emotionName = $this->emotionAI->getEmotionFromTitle($title);
             $emotion = Emotion::where('emotionName', $emotionName)->first()
                 ?? Emotion::inRandomOrder()->first();
 
-            // 7. Crear Content
+
             $content = Content::create([
                 'title' => $title,
                 'releaseYear' => $year,
@@ -84,13 +87,36 @@ class BookImportController extends Controller
                 'emotionId' => $emotion?->emotionId,
             ]);
 
-
             Book::create([
                 'contentId' => $content->contentId,
                 'publisher' => $publisher,
                 'isbn' => $industryIdentifiers,
                 'pageCount' => $pageCount,
             ]);
+
+
+            $authorNames = $info['authors'] ?? [];
+            $authorIds = [];
+            foreach ($authorNames as $authorName) {
+                $author = \App\Models\Author::firstOrCreate(['authorName' => trim($authorName)]);
+                $authorIds[] = $author->authorId;
+            }
+            if (!empty($authorIds)) {
+                $content->authors()->attach($authorIds);
+            }
+
+
+            $categories = $info['categories'] ?? [];
+            $genreIds = [];
+            foreach ($categories as $category) {
+                $matched = Genre::whereRaw('LOWER(name) = ?', [strtolower(trim($category))])->first();
+                if ($matched) {
+                    $genreIds[] = $matched->genreId;
+                }
+            }
+            if (!empty($genreIds)) {
+                $content->genres()->attach($genreIds);
+            }
 
             $created[] = $content->contentId;
         }

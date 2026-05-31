@@ -17,14 +17,14 @@ class Author extends Model
         'authorName',
     ];
 
-    // RELACIÓN: un autor tiene muchos contenidos (N:N)
+
     public function contents()
     {
         return $this->belongsToMany(
             Content::class,
-            'authors_book',   // tabla pivote
-            'authorId',       // FK en authors_book que apunta a authors
-            'contentId'       // FK en authors_book que apunta a contents
+            'authors_book',   
+            'authorId',      
+            'contentId'      
         );
     }
 }
